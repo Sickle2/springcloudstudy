@@ -8,5 +8,13 @@
     <artifactId>springcloudDemo</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <modules>
+        <module>eureka-server</module>
+        <module>service-feign</module>
+        <module>service-gateway</module>
+        <module>service-hello</module>
+        <module>service-ribbon</module>
+        <module>service-zuul</module>
+    </modules>
 
 </project>
