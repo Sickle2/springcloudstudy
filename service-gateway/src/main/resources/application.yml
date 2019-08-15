@@ -1,0 +1,28 @@
+server:
+  port: 8770
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+spring:
+  application:
+    name: service-gateway
+  cloud:
+    gateway:
+      routes:
+      - id: service-ribbon
+        uri: lb://service-ribbon
+        predicates:
+        - Path=/ribbon/**
+        filters:
+        - StripPrefix=1
+
+      - id: service-feign
+        uri: lb://service-feign
+        predicates:
+        - Path=/feign/**
+#        在这个时间之后才访问router
+#        - After=2017-01-20T17:42:47.789-07:00[America/Denver]
+        filters:
+        - StripPrefix=1
+#  profiles: after_route
