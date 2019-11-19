@@ -18,7 +18,9 @@ public class SayHelloWorldHandler {
     String port;
 
     @GetMapping("/hi")
-    public String home(@RequestParam String name) {
+    public String home(@RequestParam String name) throws InterruptedException {
+        //模拟返回超时
+//        Thread.sleep(1000000);
         return "hello world! " + name + ",i am from port:" + port;
     }
 }
