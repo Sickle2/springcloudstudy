@@ -15,6 +15,7 @@
         <module>service-hello</module>
         <module>service-ribbon</module>
         <module>service-zuul</module>
+        <module>service-auth</module>
     </modules>
 
 </project>
