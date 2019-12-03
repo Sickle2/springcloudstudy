@@ -1,0 +1,20 @@
+server:
+  port: 8778
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+spring:
+  application:
+    name: zipkin-server
+  zipkin:
+    base-url: http://127.0.0.1:9411/  # zipkin服务器的地址
+    # 关闭服务发现，否则Spring Cloud会把zipkin的url当做服务名称
+    discoveryClientEnabled: false
+    sender:
+      type: web
+  sleuth:
+    sampler:
+      probability: 1  # 设置抽样采集率为100%，默认为0.1，即10%

@@ -16,6 +16,7 @@
         <module>service-ribbon</module>
         <module>service-zuul</module>
         <module>service-security-simple</module>
+        <module>zipkin-server</module>
     </modules>
 
 </project>

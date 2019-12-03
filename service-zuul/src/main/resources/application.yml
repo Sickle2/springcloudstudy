@@ -7,6 +7,15 @@ server:
 spring:
   application:
     name: service-zuul
+  zipkin:
+    base-url: http://127.0.0.1:9411/  # zipkin服务器的地址
+    # 关闭服务发现，否则Spring Cloud会把zipkin的url当做服务名称
+    discoveryClientEnabled: false
+    sender:
+      type: web
+  sleuth:
+    sampler:
+      probability: 1  # 设置抽样采集率为100%，默认为0.1，即10%
 
 #必须配上，不然几乎一定超时
 ribbon:
@@ -22,3 +31,6 @@ zuul:
     api-b:
       path: /api-b/**
       serviceId: service-feign
+    api-hello:
+      path: /zipkin/**
+      serviceId: zipkin-server
